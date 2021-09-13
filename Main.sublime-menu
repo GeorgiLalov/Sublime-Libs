@@ -1,0 +1,62 @@
+[{	
+	"id": "my_parsers",
+	"caption": "My Parsers",
+	"children": 
+	[{
+		"id" : "rmpdc",
+		"caption": "RMPDC",
+		"children":
+		[
+			{ "caption" : "Get Variables", "command" : "rmpdc_get_variables" },
+			{ "caption" : "Create Loop", "command" : "rmpdc_create_loop" },
+			{ "caption" : "Loop Numbering", "command" : "rmpdc_loop_numbering" },
+			{ "caption" : "Get Altlabels B", "command" : "rmpdc_get_altlabels_b" }
+		]
+	},
+	{
+		"id" : "cohn",
+		"caption": "Cohn And Wolfe",
+		"children":
+		[
+			{ "caption" : "Make Rows/Cols", "command" : "cohn_make_cols" }
+		]
+	},
+    {
+        "id" : "cancer",
+        "caption": "CancerMPact",
+        "children":
+        [
+            { "caption" : "Switch Version", "command" : "cancer_switch_version" }
+        ]
+    },
+    {
+        "id" : "usefull",
+        "caption": "UsefullStuff",
+        "children":
+        [
+            { "caption" : "Duplicate Sequential Validate", "command" : "dup_sec_validate" },
+            { "caption" : "Set Empty", "command" : "set_empty" },
+            { "caption" : "Group Rows With Order", "command" : "group_rows_with_order" },
+            { "caption" : "Page Timer Counter", "command" : "page_timer_counter" },
+            { "caption" : "Autosum Read Only Col", "command" : "autosum_read_only_col" },
+            { "caption" : "Autosum Read Only Row", "command" : "autosum_read_only_row" },
+            { "caption" : "Numpad Style", "command" : "numpad_style" },
+            { "caption" : "Cardsort Cardrating Autosubmit", "command" : "cardsort_cardrating_autosubmit" },
+            { "caption" : "Create Alt Left Right", "command" : "create_alt_left_right" },
+            { "caption" : "Create Left Right Question", "command" : "create_left_right" },
+        ]
+    },
+    {
+        "id" : "greenbergstyles",
+        "caption": "Greenberg Styles",
+        "children":
+        [
+            { "caption" : "OpenEnd JS", "command" : "open_end_java_scripts" },
+            { "caption" : "Autopunch Slider", "command" : "autopunch_slider" },
+            { "caption" : "Freeze Title", "command" : "freeze_title" },
+            { "caption" : "Fly-In Text", "command" : "fly_in_text" },
+            { "caption" : "Hover Text", "command" : "hover_text" },
+            { "caption" : "Radio Autocontinue", "command" : "radio_autocontinue" },
+        ]
+    },]
+}]
