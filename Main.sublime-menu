@@ -56,7 +56,15 @@
             { "caption" : "Freeze Title", "command" : "freeze_title" },
             { "caption" : "Fly-In Text", "command" : "fly_in_text" },
             { "caption" : "Hover Text", "command" : "hover_text" },
-            { "caption" : "Radio Autocontinue", "command" : "radio_autocontinue" },
+            { "caption" : "Radio Auto Continue", "command" : "radio_autocontinue" },
+            { "caption" : "Universal Auto Continue", "command" : "universal_auto_continue" },
+            { "caption" : "Remove Help Links", "command" : "remove_help_links" },
+            { "caption" : "General Styles - Comments, Titles", "command" : "general_styles" },
+            { "caption" : "Cardsort Style Attributes", "command" : "cardsort_style_attributes" },
+            { "caption" : "Atm1d Style", "command" : "atm1d_style" },
+            { "caption" : "Slider Style", "command" : "slider_style" },
+            { "caption" : "Ranksort Style Mobile", "command" : "ranksort_style_mobile" },
+            { "caption" : "Ranksort Attributes", "command" : "ranksort_attributes" },
         ]
     },]
 }]

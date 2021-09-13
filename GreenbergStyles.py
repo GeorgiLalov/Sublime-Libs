@@ -284,6 +284,315 @@ class RadioAutocontinue(sublime_plugin.TextCommand):
         except Exception as e:
             print (e)
 
+class UniversalAutoContinue(sublime_plugin.TextCommand):
+    def run(self, edit):
+        try:
+            Selected = self.view.sel()
+
+            for sel in Selected:
+                inputs = self.view.substr(sel).strip()
+
+                printPage = '''
+<style label="UniversalAutoContinue" name="question.footer" wrap="ready" mode="after" arg:hideButton="0">
+  <![CDATA[
+    "use strict";
+
+    var button = $ ('#btn_continue, #btn_finish');
+    var inputs = $ ("#question_${this.label} input[type=radio]");
+    var radioGroups = [];
+
+    \@if hideButton == '1'
+      button.hide();
+    \@endif
+
+    inputs.each(function(i, e){
+      if ($.inArray($ (e).attr('name'), radioGroups) === -1){
+        radioGroups.push($ (e).attr('name'))
+      }
+    });
+
+    (function checker(){
+      if (inputs.filter(":checked").length === radioGroups.length){
+        button.show().click();
+      }
+      else {
+        setTimeout(checker, 50);
+      }
+    })();
+
+  ]]>
+</style>
+'''
+                self.view.replace(edit,sel, printPage)
+        except Exception as e:
+            print (e)
+
+class RemoveHelpLinks(sublime_plugin.TextCommand):
+    def run(self, edit):
+        try:
+            Selected = self.view.sel()
+
+            for sel in Selected:
+                inputs = self.view.substr(sel).strip()
+
+                printPage = '''
+<style name="respview.client.css" mode="after"><![CDATA[
+<style type="text/css">
+.support-links {
+  display: none;
+}
+</style>
+]]></style>
+'''
+                self.view.replace(edit,sel, printPage)
+        except Exception as e:
+            print (e)
+
+class GeneralStyles(sublime_plugin.TextCommand):
+    def run(self, edit):
+        try:
+            Selected = self.view.sel()
+
+            for sel in Selected:
+                inputs = self.view.substr(sel).strip()
+
+                printPage = '''
+<style name="respview.client.css" mode="after">
+<![CDATA[
+<style>
+.comment-text {
+    font-family: 'Lato Light', arial, serif;
+    color: black;
+    font-size: 20px !important;
+    line-height: 22px !important;
+    font-weight: bold !important;
+
+}
+.instruction-text {
+    font-family: 'Lato Light', arial, serif !important;
+}
+.question-text {
+    font-family: 'Lato Light', arial, serif;
+    color: black;
+    font-size: 20px !important;
+    line-height: 22px !important;
+    font-weight: bold !important;
+}
+b {
+  font-family: 'Lato Regular', arial, serif !important;
+}
+</style>
+]]>
+</style>
+'''
+                self.view.replace(edit,sel, printPage)
+        except Exception as e:
+            print (e)
+
+class CardsortStyleAttributes(sublime_plugin.TextCommand):
+    def run(self, edit):
+        try:
+            Selected = self.view.sel()
+
+            for sel in Selected:
+                inputs = self.view.substr(sel).strip()
+
+                printPage = '''
+  cardsort:bucketCSS="height: 100px; width: 160px; padding: 0; border-radius: 10px; background-color: #9dc533; border: 0 none; color: white; font-size: 18px; font-weight: bold; font-family: 'Lato Light';"
+  cardsort:cardCSS="width: auto;"
+  cardsort:completionCSS="color: rgb( 66, 106, 146 ); font-size: 12px;"
+  cardsort:displayCounter="0"
+  cardsort:displayNavigation="0"
+  cardsort:displayProgress="0"
+  cardsort:bucketsPerRow="3"
+'''
+                self.view.replace(edit,sel, printPage)
+        except Exception as e:
+            print (e)
+
+class Atm1dStyle(sublime_plugin.TextCommand):
+    def run(self, edit):
+        try:
+            Selected = self.view.sel()
+
+            for sel in Selected:
+                inputs = self.view.substr(sel).strip()
+
+                printPage = '''
+<style name="respview.client.css" mode="after">
+  <![CDATA[
+    <style type="text/css">
+/*Make the table as wide as possible based on the theme.css*/
+.sq-atm1d-btns{
+    width: 100% !important;
+}           
+/*Adjust the boxes size so that they can fit into the container in three columns*/
+.sq-atm1d-btn{
+    width: 350px !important;
+}
+.sq-atm1d-legend .text {
+    text-align: center;
+}
+/* Hide the atm1d flag icon */
+.sq-atm1d-flag-icon {
+    display: none;
+}
+/* All atm1d questions */
+.sq-atm1d .sq-atm1d-button {
+    background-color: transparent;
+}
+.sq-atm1d .sq-atm1d-hovered {
+    background-color: transparent !important;
+    border: 2px solid #8CB64F !important;
+}
+.sq-atm1d .sq-atm1d-legend {
+    font-size: 15px;
+        color: black;
+}
+.sq-atm1d-vertical .sq-atm1d-td,.sq-atm1d-vertical .oe {
+    text-align: center;
+    vertical-align: middle !important;
+}
+.sq-atm1d-vertical .sq-atm1d-td, .sq-atm1d-vertical .oe {
+    text-align: center;
+    vertical-align: middle !important;
+    padding: 1px !important;
+}
+.sq-atm1d-content .sq-atm1d-td {
+    background-color: #fff;
+}
+.sq-atm1d .sq-atm1d-table,.sq-atm1d .sq-atm1d-table .sq-atm1d-content {
+    height: 100%;
+    max-height: none;
+    min-height: 47px;
+    padding: 0px;
+    width: 100%;
+    color: black;
+}
+.table.sq-atm1d-table .img-style img {
+    width: 100%;
+}
+.sq-atm1d .sq-atm1d-selected {
+    background-color:  transparent !important;
+    border: 4px solid #8CB64F !important;
+}
+.sq-atm1d .sq-atm1d-button {
+    border-radius: 21px;
+    margin: 4px !important; 
+    min-width: 210px;
+    border: 2px solid #BFBEBE;
+}
+   </style>
+  ]]></style>
+'''
+                self.view.replace(edit,sel, printPage)
+        except Exception as e:
+            print (e)
+
+class SliderStyle(sublime_plugin.TextCommand):
+    def run(self, edit):
+        try:
+            Selected = self.view.sel()
+
+            for sel in Selected:
+                inputs = self.view.substr(sel).strip()
+
+                printPage = '''
+<style mode="after" name="respview.client.js" wrap="ready"><![CDATA[
+$ (".question-text").attr("title", "");
+$ (".instruction-text").attr("title", "");
+]]></style>
+<style label="slider_text" mode="after" name="respview.client.css"><![CDATA[
+<style type="text/css">
+.sq-sliderpoints .sliderpoints-legenditem, .sq-sliderpoints .fa-icon-circle {
+    font-size: 20px;
+}
+    </style>
+]]></style>
+<style label="separateSlider" mode="after" name="respview.client.css"><![CDATA[
+<br />
+<hr />
+<br />
+]]></style>
+<style label="sliderLegendCSS" mode="after" name="respview.client.css"><![CDATA[
+<style>
+.sq-sliderpoints-row-legend {
+    font-family: 'Lato Light', arial, serif;
+    font-weight: bold;
+    font-size: 22px !important;
+    text-align: center;
+}
+    </style>
+]]></style>
+
+'''
+                self.view.replace(edit,sel, printPage)
+        except Exception as e:
+            print (e)
+
+class RanksortStyleMobile(sublime_plugin.TextCommand):
+    def run(self, edit):
+        try:
+            Selected = self.view.sel()
+
+            for sel in Selected:
+                inputs = self.view.substr(sel).strip()
+
+                printPage = '''
+<style name="question.footer" mode="after" cond="device.mobileDevice">
+  <![CDATA[
+    <style>
+#survey .sq-ranksort-container .sq-ranksort-cards .sq-ranksort-card  {
+    height: 100px; 
+}
+    </style>
+  ]]>
+</style>
+<style name="question.footer" mode="after" cond="not device.mobileDevice">
+  <![CDATA[
+    <style>
+.sq-ranksort-container .sq-ranksort-buckets .sq-ranksort-bucket {
+   height: 230px !important;
+} 
+    </style>
+  ]]>
+</style>
+'''
+                self.view.replace(edit,sel, printPage)
+        except Exception as e:
+            print (e)
+
+class RanksortAttributes(sublime_plugin.TextCommand):
+    def run(self, edit):
+        try:
+            Selected = self.view.sel()
+
+            for sel in Selected:
+                inputs = self.view.substr(sel).strip()
+
+                printPage = '''
+  ranksort:uiDraggableHelperCSS="background-color: #8cbb40; color: white; border: 1px solid #8cbb40; border-radius: 5px; height: 250px; width: 500px;"
+  ranksort:uiSortablePlaceholderCSS="background-color: #8cbb40; color: white; border: 1px solid #8cbb40; border-radius: 5px;"
+  ranksort:uiSortableHelperCSS="background-color: #8cbb40; color: white; border: 1px solid #8cbb40; border-radius: 5px;"
+  ranksort:uiDroppableActiveCSS="background-color: #8cbb40; color: white; border: 1px solid #8cbb40; border-radius: 5px;"
+  ranksort:uiDroppableHoverCSS="background-color: #8cbb40; color: white; border: 1px solid #8cbb40; border-radius: 5px;"
+  ranksort:cardDroppedCSS="background-color: #8cbb40 !important; color: white; border: 1px solid #8cbb40; border-radius: 5px;"
+  ranksort:iconAddCSS="color: #8cbb40; display: none;"
+  ranksort:iconRemoveCSS="color: #8cbb40; display: none;"
+  ranksort:iconRankCSS="color: #8cbb40; display: none;"
+  ranksort:bucketCSS="height: 180px;"
+  ranksort:bucketsContainerCSS="width: 170px;"
+  ranksort:cardCSS="height: 230px;"
+  ranksort:cardHoverCSS="background-color: #8cbb40;"
+'''
+                self.view.replace(edit,sel, printPage)
+        except Exception as e:
+            print (e)
+
+
+
+
+
 
 
 
